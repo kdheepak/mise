@@ -27,6 +27,7 @@ pub enum BackendType {
     Spm,
     Ubi,
     Vfox,
+    BinaryBuilder,
     Unknown,
 }
 
@@ -53,6 +54,7 @@ impl BackendType {
             "spm" => BackendType::Spm,
             "ubi" => BackendType::Ubi,
             "vfox" => BackendType::Vfox,
+            "binary-builder" | "binarybuilder" => BackendType::BinaryBuilder,
             _ => BackendType::Unknown,
         }
     }

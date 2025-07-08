@@ -37,6 +37,7 @@ use std::sync::LazyLock as Lazy;
 pub mod aqua;
 pub mod asdf;
 pub mod backend_type;
+pub mod binary_builder;
 pub mod cargo;
 pub mod dotnet;
 mod external_plugin_cache;
@@ -158,6 +159,9 @@ pub fn arg_to_backend(ba: BackendArg) -> Option<ABackend> {
         BackendType::Spm => Some(Arc::new(spm::SPMBackend::from_arg(ba))),
         BackendType::Ubi => Some(Arc::new(ubi::UbiBackend::from_arg(ba))),
         BackendType::Vfox => Some(Arc::new(vfox::VfoxBackend::from_arg(ba))),
+        BackendType::BinaryBuilder => {
+            Some(Arc::new(binary_builder::BinaryBuilderBackend::from_arg(ba)))
+        }
         BackendType::Unknown => None,
     }
 }
